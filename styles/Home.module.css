@@ -1,0 +1,100 @@
+/* styles/Home.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the button horizontally */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 350px;
+  margin: auto;
+  border: 1px solid #e0e0e0; /* Lighter border color */
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden; /* Ensures that all child elements are within the card */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for shadow as well */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* More prominent shadow on hover */
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.cardBody {
+  padding: 20px;
+  flex-grow: 1; /* Makes the body take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Better spacing of content */
+}
+
+.cardTitle {
+  font-size: 1.25rem; /* Adjusted for better readability */
+  margin-bottom: 15px;
+  color: #333; /* Darker color for better contrast */
+}
+
+.cardPrice {
+  font-weight: bold;
+  font-size: 1.1rem; /* Slightly larger for emphasis */
+  color: #007BFF; /* Adds color to highlight price */
+}
+
+/* Additional styles for responsiveness and interactivity */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr; /* Full width cards on smaller screens */
+  }
+}
+
+/* Adding a subtle hover effect for images */
+.cardImage:hover {
+  opacity: 0.9;
+}
+
+.addButton {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 12px 30px; /* Increased padding for a larger button */
+  margin: 20px 0 30px; /* Added bottom margin for space between button and grid */
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for all hover effects */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.addButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* More prominent shadow on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  width: 100%; /* Ensure the grid takes the full width */
+}
