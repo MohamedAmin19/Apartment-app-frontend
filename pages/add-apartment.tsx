@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from '../styles/AddApartment.module.css';
 
-// Define a type for your form data with an index signature
 type FormData = {
   title: string;
   location: string;
@@ -22,28 +21,30 @@ const AddApartment = () => {
   });
   const router = useRouter();
 
+  //handle change function
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
-    if (name === 'imageUrls') { // Corrected from 'image' to 'imageUrls'
+    if (name === 'imageUrls') {
       setFormData({ ...formData, [name]: files?.[0] ?? null });
     } else {
       setFormData({ ...formData, [name]: value });
     }
   };
 
+  //handle submit function
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
   
     const data = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
-      if (key === 'imageUrls' && value) { // Check if the key is 'imageUrls' and has a file
-        data.append('images', value); // Assuming your backend expects the file under the 'image' field
+      if (key === 'imageUrls' && value) {
+        data.append('images', value);
       } else if (value !== null) {
-        data.append(key, value.toString()); // Convert all non-null values to string to handle non-file fields
+        data.append(key, value.toString());
       }
     });
   
-    // Proceed with the axios request
+    //Getting data from backend
     try {
       console.log(data);
       const response = await axios.post('http://localhost:3001/apartments', data, {

@@ -11,6 +11,7 @@ import Link from 'next/link';
 const Home = ({ apartments }: HomeProps) => {
   const router = useRouter();
 
+  //handle when clicking on an apartment
   const handleApartmentClick = (id: string) => {
     router.push(`/apartments/${id}`);
   };
@@ -39,6 +40,7 @@ const Home = ({ apartments }: HomeProps) => {
   );
 };
 
+//Getting data from backend
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
   try {
     const response = await axios.get<Apartment[]>('http://localhost:3001/apartments');

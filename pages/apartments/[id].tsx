@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-// pages/apartments/[id].tsx
 
 import axios from 'axios';
 import { GetServerSideProps } from 'next';
@@ -13,6 +12,7 @@ interface ApartmentDetailsProps {
   apartment: Apartment;
 }
 
+//Apartment details page
 const ApartmentDetails = ({ apartment }: ApartmentDetailsProps) => {
   const router = useRouter();
 
@@ -38,6 +38,7 @@ const ApartmentDetails = ({ apartment }: ApartmentDetailsProps) => {
   );
 };
 
+//Getting data from backend
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   try {
     const id = params?.id;

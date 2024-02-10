@@ -1,4 +1,3 @@
-// types.ts
 
 export type Apartment = {
     _id: string;
@@ -7,7 +6,6 @@ export type Apartment = {
     price: number;
     location:string;
     imageUrls: string[];
-    // Add other properties as needed
   };
   
   export type HomeProps = {
